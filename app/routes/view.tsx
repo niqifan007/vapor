@@ -342,7 +342,7 @@ export default function View() {
 
                 {viewRaw ? (
                   <div className="rounded-lg border-2 border-iron bg-background/80 p-4 lg:p-6">
-                    <pre className="whitespace-pre-wrap break-words font-mono text-sm leading-relaxed text-foreground">
+                    <pre className="whitespace-pre-wrap wrap-break-word font-mono text-sm leading-relaxed text-foreground">
                       {plaintext}
                     </pre>
                   </div>

@@ -13,6 +13,46 @@ const URL_ATTRS = new Set(["href", "src", "xlink:href", "formaction"]);
 const BLOCKED_TAGS = ["script", "iframe", "object", "embed", "link", "meta", "base"];
 const DANGEROUS_PROTOCOL = /^\s*(?:javascript|vbscript):/i;
 const VDITOR_LOCAL_CDN = "/vditor";
+const MOBILE_MEDIA_QUERY = "(max-width: 768px)";
+
+const DESKTOP_TOOLBAR = [
+  "headings",
+  "bold",
+  "italic",
+  "strike",
+  "|",
+  "list",
+  "ordered-list",
+  "check",
+  "|",
+  "quote",
+  "code",
+  "inline-code",
+  "link",
+  "table",
+  "|",
+  "undo",
+  "redo",
+  "|",
+  "fullscreen",
+] as const;
+
+const MOBILE_TOOLBAR = [
+  "bold",
+  "italic",
+  "strike",
+  "|",
+  "list",
+  "ordered-list",
+  "check",
+  "|",
+  "quote",
+  "code",
+  "link",
+  "|",
+  "undo",
+  "redo",
+] as const;
 
 function hardenRenderedHtml(html: string): string {
   if (typeof document === "undefined") return html;
@@ -59,6 +99,7 @@ export function VditorEditor({
     if (!containerRef.current) return;
 
     let destroyed = false;
+    const isMobileViewport = window.matchMedia(MOBILE_MEDIA_QUERY).matches;
 
     import("vditor").then((mod) => {
       if (destroyed || !containerRef.current) return;
@@ -72,28 +113,8 @@ export function VditorEditor({
         mode: "ir",
         theme: "dark",
         icon: "ant",
-        toolbar: [
-          "headings",
-          "bold",
-          "italic",
-          "strike",
-          "|",
-          "list",
-          "ordered-list",
-          "check",
-          "|",
-          "quote",
-          "code",
-          "inline-code",
-          "link",
-          "table",
-          "|",
-          "undo",
-          "redo",
-          "|",
-          "fullscreen",
-        ],
-        toolbarConfig: { pin: true },
+        toolbar: isMobileViewport ? [...MOBILE_TOOLBAR] : [...DESKTOP_TOOLBAR],
+        toolbarConfig: { pin: !isMobileViewport },
         counter: { enable: true, max: 50000, type: "text" },
         cache: { enable: false },
         preview: {
@@ -106,7 +127,9 @@ export function VditorEditor({
           onChange?.(value);
         },
         after: () => {
-          editorRef.current?.focus();
+          if (!isMobileViewport) {
+            editorRef.current?.focus();
+          }
         },
       });
     });

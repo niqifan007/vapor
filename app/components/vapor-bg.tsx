@@ -11,13 +11,13 @@ export function VaporBackground() {
 
       {/* Decorative gear – bottom right */}
       <Cog
-        className="absolute -bottom-16 -right-16 size-64 text-copper/[0.04] animate-gear"
+        className="absolute -bottom-16 -right-16 size-64 text-copper/4 animate-gear"
         strokeWidth={0.5}
       />
 
       {/* Decorative gear – top left */}
       <Cog
-        className="absolute -top-10 -left-10 size-48 text-copper/[0.04] animate-gear-reverse"
+        className="absolute -top-10 -left-10 size-48 text-copper/4 animate-gear-reverse"
         strokeWidth={0.5}
       />
 

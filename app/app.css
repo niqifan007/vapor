@@ -232,6 +232,7 @@
 /* ── Vditor steampunk theme overrides ── */
 .vditor-steampunk .vditor {
   --border-color: var(--copper);
+  width: 100%;
   border: 2px solid color-mix(in srgb, var(--copper) 60%, transparent);
   border-radius: var(--radius-lg);
   background: color-mix(in srgb, var(--iron) 40%, transparent);
@@ -414,4 +415,38 @@
 
 .vditor-steampunk-preview .vditor-reset hr {
   border-color: color-mix(in srgb, var(--copper) 30%, transparent);
+}
+
+@media (max-width: 768px) {
+  .vditor-steampunk .vditor-toolbar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vditor-steampunk .vditor-toolbar::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .vditor-steampunk .vditor-toolbar::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--copper) 50%, transparent);
+    border-radius: 999px;
+  }
+
+  .vditor-steampunk .vditor-ir pre.vditor-reset,
+  .vditor-steampunk .vditor-sv pre.vditor-reset,
+  .vditor-steampunk .vditor-wysiwyg pre.vditor-reset {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .vditor-steampunk .vditor-counter {
+    font-size: 12px;
+  }
+
+  .vditor-steampunk-preview {
+    padding: 0.875rem 1rem;
+  }
 }
