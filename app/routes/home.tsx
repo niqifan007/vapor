@@ -21,6 +21,12 @@ import {
 } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
 import { VditorEditor } from "~/components/vditor-editor";
 import {
   Select,
@@ -403,6 +409,96 @@ export default function Home() {
               label="Zero Knowledge"
             />
           </div>
+
+          {/* FAQ */}
+          <SteampunkCard>
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-primary font-bold uppercase text-xs tracking-widest">
+                <Info className="size-4" aria-hidden="true" />
+                Frequently Asked Questions
+              </div>
+              <Accordion type="multiple" className="w-full">
+                <AccordionItem value="what" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    What is Vapor?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    Vapor is a self-destructing, end-to-end encrypted secret sharing tool. It lets you
+                    send passwords, API keys, private notes, or any sensitive text through a one-time
+                    link that automatically expires after being read or after a set time period.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="encryption" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    How does the encryption work?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    Your message is encrypted in the browser using <strong className="text-copper">AES-256-GCM</strong> before
+                    it ever leaves your device. The encryption key is derived via PBKDF2 and is placed
+                    in the URL fragment (the part after <code className="text-primary font-mono">#</code>), which is never
+                    sent to the server. Only someone with the full link can decrypt your message.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="zero-knowledge" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    Can Vapor&apos;s server read my messages?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    No. Vapor operates on a <strong className="text-copper">zero-knowledge</strong> architecture. The server
+                    only stores the encrypted ciphertext and never receives the decryption key.
+                    Even if the server were compromised, your data would remain unreadable without the key.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="burn" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    What does &ldquo;Burn After Reading&rdquo; mean?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    When enabled, the encrypted note is permanently deleted from the server the moment
+                    it is viewed for the first time. This ensures your secret can only ever be read once —
+                    after that, the data is gone forever.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="password" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    Why would I add an extra password?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    The link alone is enough to decrypt the message, but adding a password provides a
+                    second layer of protection. Even if the link is intercepted, the attacker would also
+                    need the password to unlock the content. Share the password through a different channel
+                    (e.g., a phone call) for maximum security.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="expiry" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    What happens when a note expires?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    Once the chosen time-to-live (TTL) is reached, the encrypted data is automatically
+                    and permanently purged from the server. Expired notes cannot be recovered by anyone —
+                    not even Vapor&apos;s administrators.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="open-source" className="border-copper/20">
+                  <AccordionTrigger className="text-copper hover:text-primary hover:no-underline">
+                    Is Vapor open source?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-copper/70">
+                    Yes! Vapor is fully open source. You can audit the code, verify the encryption
+                    implementation, or self-host your own instance. Transparency is a core part of our
+                    security model — don&apos;t trust, verify.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          </SteampunkCard>
         </div>
       </main>
     </div>
