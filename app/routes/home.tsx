@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import { useFetcher } from "react-router";
 import type { Route } from "./+types/home";
 import { deriveKeyProof, encrypt } from "~/lib/crypto";
+import { QRCodeSVG } from "qrcode.react";
 import {
   Copy,
   Check,
@@ -16,6 +17,7 @@ import {
   EyeOff,
   Cog,
   Flame,
+  QrCode,
 } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -159,6 +161,20 @@ export default function Home() {
                     )}
                     {copied ? "Copied" : "Copy"}
                   </Button>
+                </div>
+
+                <div className="flex flex-col items-center gap-3 py-2">
+                  <div className="flex items-center gap-2 text-primary font-bold uppercase text-xs tracking-widest">
+                    <QrCode className="size-4" aria-hidden="true" />
+                    Scan to Decode
+                  </div>
+                  <div className="bg-white p-3 rounded-lg border border-copper/20">
+                    <QRCodeSVG
+                      value={computedShareUrl}
+                      size={180}
+                      level="M"
+                    />
+                  </div>
                 </div>
 
                 <div className="bg-iron/30 border border-copper/20 rounded-lg p-3 space-y-1.5">
