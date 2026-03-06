@@ -27,8 +27,9 @@ import { VditorPreview } from "~/components/vditor-editor";
 
 export function meta() {
   return [
-    { title: "View Secret — Vapor" },
-    { name: "description", content: "Burn-after-reading encrypted message" },
+    { title: "查看加密消息 — Vapor" },
+    { name: "description", content: "查看阅后即焚的加密消息 — Vapor 端到端加密分享" },
+    { name: "robots", content: "noindex, nofollow" },
   ];
 }
 

@@ -47,8 +47,16 @@ import {
 
 export function meta() {
   return [
-    { title: "Vapor — Burn After Reading" },
-    { name: "description", content: "End-to-end encrypted, self-destructing secret sharing" },
+    { title: "Vapor — 阅后即焚加密分享" },
+    { name: "description", content: "端到端加密的阅后即焚秘密分享工具。使用 AES-256-GCM 加密，零知识架构，您的消息在阅读后自动销毁。" },
+    { name: "keywords", content: "阅后即焚,加密分享,端到端加密,零知识,AES-256-GCM,安全传输,burn after reading,self-destructing messages" },
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: "Vapor — 阅后即焚加密分享" },
+    { property: "og:description", content: "端到端加密的阅后即焚秘密分享工具。使用 AES-256-GCM 加密，零知识架构，您的消息在阅读后自动销毁。" },
+    { property: "og:site_name", content: "Vapor" },
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: "Vapor — 阅后即焚加密分享" },
+    { name: "twitter:description", content: "端到端加密的阅后即焚秘密分享工具。使用 AES-256-GCM 加密，零知识架构。" },
   ];
 }
 
