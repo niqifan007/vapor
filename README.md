@@ -56,31 +56,7 @@
 
 ## Demo | 演示
 
-> Add your demo screenshots here
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│  Create Page (/)                                            │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │ [Markdown Editor Area]                                  ││
-│  │                                                         ││
-│  │  TTL: [5 min ▼]  Password: [••••••]  Burn: [✓]         ││
-│  │                                                         ││
-│  │  [Create Secret]  [Generate QR Code]                    ││
-│  └─────────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────────────────────────────┐
-│  View Page (/view?id=xxx)                                   │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │  🔐 Enter password to decrypt                           ││
-│  │  [••••••••] [Decrypt]                                   ││
-│  │                                                         ││
-│  │  [Decrypted Content]                                    ││
-│  │  ⚠️ This message will be deleted after viewing          ││
-│  └─────────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────────┘
-```
+![image](https://pic.sl.al/gdrive/pic/2026-03-09/fileid_1PIvKb_DLz-lKYocGZCGoX9RVReWGLHX3_PixPin_2026-03-09_15-28-12.png)
 
 ## Tech Stack | 技术栈
 
@@ -525,7 +501,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/YOUR_USERNAME">Your Name</a>
+  Made with ❤️ by <a href="https://github.com/niqifan007">waka</a>
 </p>
 
 <p align="center">
