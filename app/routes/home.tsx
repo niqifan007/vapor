@@ -18,6 +18,7 @@ import {
   Cog,
   Flame,
   QrCode,
+  Github,
 } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -527,6 +528,15 @@ function SiteHeader() {
         <h2 className="text-primary text-xl font-bold tracking-widest uppercase">
           Vapor
         </h2>
+      </a>
+      <a
+        href="https://github.com/niqifan007/vapor"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-copper hover:text-primary transition-colors"
+        aria-label="View on GitHub"
+      >
+        <Github className="size-6" />
       </a>
     </header>
   );
